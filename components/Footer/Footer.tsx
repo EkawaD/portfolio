@@ -21,6 +21,7 @@ export default function Footer({ contact, children, className }: { contact?: boo
         }
         {children}
         <Group position="left" styles={{ width: "100%" }} >
+          <Text size="xs"> Images generated with @Midjourney and @Dall-E </Text>
           <Text size="xs"> © Copyright 2022. Made by Ederhy Bastien </Text>
         </Group>
       </Group>
