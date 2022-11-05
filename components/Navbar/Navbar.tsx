@@ -25,3 +25,4 @@ export default function Navbar({ height, links, homeButton, className }: { heigh
         </>
     );
 }
+

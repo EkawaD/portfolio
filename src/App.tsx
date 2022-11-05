@@ -19,9 +19,10 @@ export default () => {
   React.useEffect(() => {
     const fetcher = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/carreer/1")
+        const res = await fetch(`http://localhost:3000/api/cv/1`)
         const data = await res.json()
-        setUser(data)
+        if (res.status === 200) setUser(data)
+        else setUser(undefined)
       } catch (error) {
         console.log(error)
       }
@@ -29,11 +30,12 @@ export default () => {
     fetcher()
   }, [])
 
+  console.log(user)
+  if (user === undefined) return <div style={{ color: "black" }}>Impossible de récupérer les données.</div>
   if (!user) return <div>Loading...</div>
   const demo = user.projects.filter((p) => p.demo)
   const github = user.projects.filter((p) => p.github && !p.demo)
   const proprio = user.projects.filter((p) => !p.demo && !p.github)
-
   const projects = demo.concat(github).concat(proprio)
 
   return (
