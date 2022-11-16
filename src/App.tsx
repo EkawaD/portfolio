@@ -29,7 +29,6 @@ export default () => {
     fetcher()
   }, [])
 
-  console.log(user)
   if (user === undefined) return <div style={{ color: "black" }}>Impossible de récupérer les données.</div>
   if (!user) return <div>Loading...</div>
   const demo = user.projects.filter((p) => p.demo)

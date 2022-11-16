@@ -143,7 +143,7 @@ h1 {
     }
     .header::after {
         content: "";
-        background: url('./jwt_bg.jpg');
+        background: url('jwt_bg.jpg');
         opacity: 0.6;
         top: 0;
         left: 0;
