@@ -19,7 +19,7 @@ export default () => {
   React.useEffect(() => {
     const fetcher = async () => {
       try {
-        const res = await fetch(`https://hephaistos-ekawad.vercel.app/api/cv/1`)
+        const res = await fetch(`https://hephaistos-ekawad.vercel.app/api/cv/ekawa`)
         const data = await res.json()
         if (res.status === 200) setUser(data)
         else setUser(undefined)
