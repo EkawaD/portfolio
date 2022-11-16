@@ -29,8 +29,8 @@ export default () => {
     fetcher()
   }, [])
 
-  if (user === undefined) return <div style={{ color: "black" }}>Impossible de récupérer les données.</div>
   if (!user) return <div>Loading...</div>
+  // if (user === undefined) return <div style={{ color: "black" }}>Impossible de récupérer les données.</div>
   const demo = user.projects.filter((p) => p.demo)
   const github = user.projects.filter((p) => p.github && !p.demo)
   const proprio = user.projects.filter((p) => !p.demo && !p.github)
