@@ -21,8 +21,7 @@ export default () => {
       try {
         const res = await fetch(`https://hephaistos-ekawad.vercel.app/api/cv/ekawa`)
         const data = await res.json()
-        if (res.status === 200) setUser(data)
-        else setUser(undefined)
+        setUser(data)
       } catch (error) {
         console.log(error)
       }
