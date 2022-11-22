@@ -1,16 +1,22 @@
-type User = {
-    id?: string
-    email: string,
-    name: string,
-    image: string,
-    profil: Profil,
-    experiences: Experience[],
-    diplomes: Diplome[],
-    skills: Skill[],
-    hobbies: Hobby[],
-    projects: Project[],
-  
-  }
+type Profil = {
+  id?: number
+  avatar: string,
+  color: string, 
+  mail: string,
+  address: string,
+  name: string, 
+  firstname: string,
+  tel: string,
+  linkedin: string,
+  github: string,
+  website: string, 
+  intro: string,
+  experiences: Experience[],
+  diplomes: Diplome[],
+  skills: Skill[],
+  hobbies: Hobby[],
+  projects: Project[],
+}
   type Diplome = {
     id?: string,
     userId?: number,
@@ -30,21 +36,7 @@ type User = {
     startDate: string,
     endDate: string,
   }
-  type Profil = {
-    id?: string,
-    userId?: number,
-    name: string,
-    color: string,
-    avatar: string,
-    firstname: string,
-    address: string
-    intro: string,
-    website: string,
-    tel: string,
-    mail: string,
-    linkedin: string,
-    github?: string,
-  }
+
   type Project = {
     id?: string,
     userId?: number,

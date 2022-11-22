@@ -16,7 +16,7 @@ export default function Projects({ project, className }: { project: Project, cla
             >
                 <Card.Section style={{ display: "flex", flexDirection: "row" }}>
                     <Image
-                        src={project.image as string}
+                        src={"/uploads/" + project.image as string}
                         alt="project_image"
                         width={300}
                         height={300}

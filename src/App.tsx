@@ -12,16 +12,16 @@ import { MdSchool, MdWork } from "react-icons/md"
 export default () => {
 
 
-  const [user, setUser] = React.useState<User>()
+  const [profil, setProfil] = React.useState<Profil>()
   const [TLType, setTLType] = React.useState("experiences")
 
 
   React.useEffect(() => {
     const fetcher = async () => {
       try {
-        const res = await fetch(`https://hephaistos-ekawad.vercel.app/api/cv/ekawa`)
+        const res = await fetch(`https://olympus.osc-fr1.scalingo.io/profils/1`)
         const data = await res.json()
-        setUser(data)
+        setProfil(data)
       } catch (error) {
         console.log(error)
       }
@@ -29,11 +29,11 @@ export default () => {
     fetcher()
   }, [])
 
-  if (!user) return <div>Loading...</div>
-  // if (user === undefined) return <div style={{ color: "black" }}>Impossible de récupérer les données.</div>
-  const demo = user.projects.filter((p) => p.demo)
-  const github = user.projects.filter((p) => p.github && !p.demo)
-  const proprio = user.projects.filter((p) => !p.demo && !p.github)
+  if (!profil) return <div>Loading...</div>
+  if (profil === undefined) return <div style={{ color: "black" }}>Impossible de récupérer les données.</div>
+  const demo = profil.projects.filter((p) => p.demo)
+  const github = profil.projects.filter((p) => p.github && !p.demo)
+  const proprio = profil.projects.filter((p) => !p.demo && !p.github)
   const projects = demo.concat(github).concat(proprio)
 
   return (
@@ -63,7 +63,7 @@ export default () => {
           <Navbar height={"75px"} links={["About me", "CV", "Projets", "Contacts"]}></Navbar>
           <div className="header" id="header">
             <div className="whoami">
-              <h1>{user.profil.name} {user.profil.firstname}</h1>
+              <h1>{profil.name} {profil.firstname}</h1>
               <h2>Développeur Web</h2>
             </div>
             <div className="contacts">
@@ -73,7 +73,7 @@ export default () => {
           <div className="about-me" id="aboutme">
             <div className="intro">
               <h1>A propos de moi</h1>
-              <p>{user?.profil.intro}</p>
+              <p>{profil.intro}</p>
             </div>
             <div className="svg">
               <img src="./dev.svg" alt="dvg of a developer" />
@@ -96,14 +96,14 @@ export default () => {
               </h2>
               <div className="tl">
                 {TLType === "experiences"
-                  ? <Timeline user={user} icon={<MdWork size={14} />} color={"teal"} type={"experiences"} />
-                  : <Timeline user={user} icon={<MdSchool size={14} />} color={"orange"} type={"diplomes"} />
+                  ? <Timeline user={profil} icon={<MdWork size={14} />} color={"teal"} type={"experiences"} />
+                  : <Timeline user={profil} icon={<MdSchool size={14} />} color={"orange"} type={"diplomes"} />
                 }
               </div>
             </div>
             <div className="skills">
               <h1>Compétences</h1>
-              <Skills skills={user.skills} className="tags" />
+              <Skills skills={profil.skills} className="tags" />
             </div>
           </div>
           <div className="projects" id="projets">
