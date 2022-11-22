@@ -2,7 +2,6 @@ import { Card, Image, Text, Button, Group, Anchor } from '@mantine/core';
 import { IoLogoGithub } from 'react-icons/io';
 import { FiExternalLink } from 'react-icons/fi';
 import * as React from 'react';
-import { createClient } from '@supabase/supabase-js';
 
 
 
