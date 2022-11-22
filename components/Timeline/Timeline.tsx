@@ -5,10 +5,9 @@ import * as React from "react";
 
 
 
-export default function TL({ user, icon, color, type }: { user: User, icon: React.ReactNode, color: string, type: string }) {
+export default function TL({ user, icon, color, type }: { user: Profil, icon: React.ReactNode, color: string, type: string }) {
     const experiences = user.experiences.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()) as Experience[]
     const diplomas = user.diplomes.sort((a, b) => new Date(b.diplomaDate).getTime() - new Date(a.diplomaDate).getTime()) as Diplome[]
-    console.log(diplomas)
 
     const readDate = (date: string) => {
         const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" }

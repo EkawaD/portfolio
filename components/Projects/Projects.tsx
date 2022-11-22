@@ -2,11 +2,13 @@ import { Card, Image, Text, Button, Group, Anchor } from '@mantine/core';
 import { IoLogoGithub } from 'react-icons/io';
 import { FiExternalLink } from 'react-icons/fi';
 import * as React from 'react';
+import { createClient } from '@supabase/supabase-js';
 
 
 
 
 export default function Projects({ project, className }: { project: Project, className?: string }) {
+    const storageUrl = "https://hpxxxyoxbnfnfwzwymxv.supabase.co/storage/v1/object/public/olympus/"
     return (
         <>
             <Card
@@ -16,7 +18,7 @@ export default function Projects({ project, className }: { project: Project, cla
             >
                 <Card.Section style={{ display: "flex", flexDirection: "row" }}>
                     <Image
-                        src={"/uploads/" + project.image as string}
+                        src={storageUrl + project.image}
                         alt="project_image"
                         width={300}
                         height={300}
