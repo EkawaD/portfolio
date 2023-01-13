@@ -35,7 +35,6 @@ export default () => {
   const github = profil.projects.filter((p) => p.github && !p.demo)
   const proprio = profil.projects.filter((p) => !p.demo && !p.github)
   const projects = demo.concat(github).concat(proprio)
-  console.log(projects);
 
 
   return (
