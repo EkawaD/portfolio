@@ -16,12 +16,10 @@ export default () => {
   const [TLType, setTLType] = React.useState("experiences")
 
 
-
-
   React.useEffect(() => {
     const fetcher = async () => {
       try {
-        const res = await fetch(`https://olympus.osc-fr1.scalingo.io/profils/1`)
+        const res = await fetch(`https://olympus.osc-fr1.scalingo.io/hermes/cv/ekawa`)
         const data = await res.json()
         setProfil(data)
       } catch (error) {
@@ -37,6 +35,8 @@ export default () => {
   const github = profil.projects.filter((p) => p.github && !p.demo)
   const proprio = profil.projects.filter((p) => !p.demo && !p.github)
   const projects = demo.concat(github).concat(proprio)
+  console.log(projects);
+
 
   return (
     <>
